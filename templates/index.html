@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>ML API</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        
+      </head>
+    <body>
+        <div class="login">
+            
+            <h1>
+                Housing Price Prediction App
+            </h1>
+            <p>
+                This application is used to predict the price of a house on a particular criteria : 
+            </p>
+            <p>
+                The distance from your office to the preferred location determines the rate. The more distance the greater the price and vice versa. Also the price depends on the number of rooms you need.
+            </p>
+            <p>
+                Good luck for your results!!
+            </p>
+            <!-- Inputs for our ML model -->
+            <form action="{{ url_for('predict')}}"method="post">
+            <input type="text" name="rooms" placeholder="Rooms"required="required" />
+            <input type="text" name="distance" placeholder="Distance" required="required"/>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict Value!</button>
+            
+            </form>
+            <br>
+            <br>
+            <b> {{ prediction_text }} </b>
+        </div>
+
+    </body>
+</html>
